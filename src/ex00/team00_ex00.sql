@@ -32,6 +32,7 @@ CREATE VIEW journey AS
         JOIN way prev ON curr.point1 = prev.point2
      WHERE prev.tour NOT LIKE '%' || prev.point2 || '%')
  SELECT * FROM way);
+-- Вызов SQL-запроса для нахождения минимальной стоимости проезда
 SELECT sum AS total_cost,
       '{' || tour || ',' || point2 || '}' AS tour
 FROM journey
